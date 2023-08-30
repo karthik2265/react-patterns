@@ -1,19 +1,23 @@
 import "./App.css";
-import { Tabs, Tab, TabHeader, TabContent } from "./patterns/CompoundComponents/Tabs";
+import useUser from "./patterns/CustomHooks/useUser";
 
 // Usage
 function App() {
+  const { user, isLoading, isSessionExpired } = useUser();
+  if (isLoading) {
+    return <h1>Loading... your profile</h1>;
+  }
+  if (!isLoading && !isSessionExpired) {
+    return <h1>Something went wrrong on our side, please try again after some time</h1>;
+  }
+  if (!isLoading && isSessionExpired) {
+    return <h1>Session expired please login</h1>;
+  }
   return (
-    <Tabs>
-      <Tab>
-        <TabHeader>Tab 1</TabHeader>
-        <TabContent>Content 1</TabContent>
-      </Tab>
-      <Tab>
-        <TabHeader>Tab 2</TabHeader>
-        <TabContent>Content 2</TabContent>
-      </Tab>
-    </Tabs>
+    <div>
+      <h1>My profile</h1>
+      <h3>{user?.name}</h3>
+    </div>
   );
 }
 

@@ -11,7 +11,7 @@ export default function useUser() {
       try {
         // mimic api call and response
         const token = localStorage.getItem("access_token");
-        const response = await fetch("https://my_app/api", {
+        const response = await fetch("https://www.google.com", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -33,8 +33,9 @@ export default function useUser() {
         setIsLoading(false);
       }
     }
-
-    fetchData();
+    setTimeout(() => {
+      fetchData();
+    }, 1000);
   }, []);
 
   return {
