@@ -1,24 +1,19 @@
-import { useState } from "react";
 import "./App.css";
-import Modal from "./patterns/Layout/Modal";
+import { Tabs, Tab, TabHeader, TabContent } from "./patterns/CompoundComponents/Tabs";
 
+// Usage
 function App() {
-  const [showTermsAndConditions, setShowTermsAndConditions] = useState();
   return (
-    <>
-      <button onClick={() => setShowTermsAndConditions(true)}>Terms and Conditions</button>
-      <Modal isOpen={showTermsAndConditions}>
-        <div>
-          <h1>Terms and Conditions</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta molestias maxime nesciunt neque laboriosam,
-            harum expedita quidem dignissimos, aliquid impedit illo voluptatum? Possimus voluptatem quia modi molestias
-            deleniti, voluptas facere?
-          </p>
-          <button onClick={() => setShowTermsAndConditions(false)}>Close</button>
-        </div>
-      </Modal>
-    </>
+    <Tabs>
+      <Tab>
+        <TabHeader>Tab 1</TabHeader>
+        <TabContent>Content 1</TabContent>
+      </Tab>
+      <Tab>
+        <TabHeader>Tab 2</TabHeader>
+        <TabContent>Content 2</TabContent>
+      </Tab>
+    </Tabs>
   );
 }
 
