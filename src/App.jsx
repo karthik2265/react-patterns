@@ -1,14 +1,12 @@
-import { useState } from 'react'
-import './App.css'
+import "./App.css";
+import HOC from "./patterns/HOC";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      PATTERNS
+      <HOC />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
